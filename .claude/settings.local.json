@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(mkdir -p \"C:/Users/lucas/Development/Personal/Resume Website/src/assets/projects/sae-aero\")",
+      "Bash(mkdir -p \"C:/Users/lucas/Development/Personal/Resume Website/src/pages/projects\")"
     ]
   }
 }

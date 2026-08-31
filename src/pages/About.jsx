@@ -5,10 +5,10 @@ function About() {
     <div className="about">
       <section className="about-hero">
         <div className="about-photo">
-          <img src="https://placehold.co/280x280/1a1a1a/555?text=Photo" alt="Your Name" />
+          <img src="https://placehold.co/280x280/1a1a1a/555?text=Photo" alt="Luca Sburlino" />
         </div>
         <div className="about-intro">
-          <h1 className="about-name">Your Name</h1>
+          <h1 className="about-name">Luca Sburlino</h1>
           <p className="about-title">Software Engineer & Creative Developer</p>
           <p className="about-bio">
             I'm a passionate developer who loves building things that live on the internet.

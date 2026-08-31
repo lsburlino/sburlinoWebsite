@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom'
+
 function Projects() {
   const projects = [
     {
       title: 'SAE Aero Design Competition',
       image: 'https://placehold.co/640x400/1a1a1a/555?text=SAE+Aero+Design',
+      link: '/projects/sae-aero',
     },
     {
       title: 'Autonomous Payload',
@@ -32,14 +35,23 @@ function Projects() {
         <h1>Projects</h1>
       </div>
       <div className="card-grid">
-        {projects.map(project => (
-          <div key={project.title} className="card">
-            <img src={project.image} alt={project.title} className="card-thumbnail" />
-            <div className="card-body">
-              <h3>{project.title}</h3>
+        {projects.map(project => {
+          const card = (
+            <div key={project.title} className="card">
+              <img src={project.image} alt={project.title} className="card-thumbnail" />
+              <div className="card-body">
+                <h3>{project.title}</h3>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+          return project.link ? (
+            <Link key={project.title} to={project.link} style={{ textDecoration: 'none' }}>
+              {card}
+            </Link>
+          ) : (
+            card
+          )
+        })}
       </div>
     </div>
   )

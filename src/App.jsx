@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import CoolThings from './pages/CoolThings'
+import SAEAero from './pages/projects/SAEAero'
 import './App.css'
 
 function App() {
@@ -28,10 +29,11 @@ function App() {
           <Route path="/" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/cool-things" element={<CoolThings />} />
+          <Route path="/projects/sae-aero" element={<SAEAero />} />
         </Routes>
       </main>
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Luca Sburlino. All rights reserved.</p>
       </footer>
     </>
   )
