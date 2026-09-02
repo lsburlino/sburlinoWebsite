@@ -1,6 +1,8 @@
+import { useEffect } from 'react'
 import './About.css'
 
 function About() {
+  useEffect(() => { document.title = 'Luca Sburlino' }, [])
   return (
     <div className="about">
       <section className="about-hero">

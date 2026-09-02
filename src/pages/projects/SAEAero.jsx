@@ -1,13 +1,14 @@
+import { useEffect } from 'react'
 import './SAEAero.css'
 import teamPhoto from '../../assets/projects/sae-aero/IMG_1099.jpg'
-import planePhoto from '../../assets/projects/sae-aero/IMG_4658.jpg'
-import navigationPhoto from '../../assets/projects/sae-aero/BU04 + OpenMV.png'
-import payloadEvolution from '../../assets/projects/sae-aero/Payload Evolution.png'
+import dlzMovement from '../../assets/projects/sae-aero/DLZ movement - Frame 2.jpg'
 import scoringChart from '../../assets/projects/sae-aero/Scoring Chart.png'
 import flightVideo1 from '../../assets/projects/sae-aero/IMG_0719.mp4'
 import flightVideo2 from '../../assets/projects/sae-aero/IMG_0720.mp4'
 
 function SAEAero() {
+  useEffect(() => { document.title = 'SAE Aero Design — Luca Sburlino' }, [])
+
   return (
     <div className="project-page">
       <div className="project-header">
@@ -20,92 +21,69 @@ function SAEAero() {
       <section className="project-section">
         <h2>Background</h2>
         <p>
-          SAE Aero West is a yearly competition which was held in Fort Worth, Texas this year.
-          This collegiate competition features teams from countries across the globe like China,
-          India, and Mexico. The competition features three classes; my team competed in the
-          advanced competition. The advanced competition is focused on designing an autonomous
-          VTOL plane to complete a payload pickup and drop off mission. This was our school's
-          first time competing in the advanced class competition but we weren't there to
-          participate, we were there to win.
+          SAE Aero West is a yearly collegiate design competition held this year in Fort Worth,
+          Texas. Teams from across the globe, including China, India, and Mexico, compete
+          across three classes. My team competed in the advanced class, which challenges teams
+          to design an autonomous VTOL plane capable of completing a payload pickup and
+          drop-off mission. This was our school's first time competing in the advanced class, but
+          we weren't there just to participate, we were there to win.
         </p>
         <p>
-          In this design, build, fly competition you are scored in 3 sections: a 30 page design
-          review where we discuss our design methodology, a 15 minute flight demonstration
-          readiness review presentation where we demonstrate why we are prepared to fly on
-          competition day, and competition scoring.
+          Scoring is split across three components: a 30-page design report detailing our
+          methodology, a 15-minute flight demonstration readiness review where we prove we are
+          prepared to fly on competition day, and competition day flight scoring.
         </p>
         <img src={scoringChart} alt="Competition scoring multipliers" className="project-img-medium" />
       </section>
 
       <section className="project-section">
-        <h2>Our Mission</h2>
+        <h2>The Mission</h2>
         <p>
-          Create an autonomous VTOL plane that carries, delivers, and retrieves a payload. We
-          defined our mission to comprise six stages: horizontal takeoff, transition to vertical
-          flight, payload delivery, payload capture, horizontal landing. While this is our mission
-          plan, points are only scored upon takeoff, payload drop off and pick up, and landing —
-          with the majority of points scored with the payload operations.
+          Our objective was to build an autonomous VTOL plane that carries, delivers, and
+          retrieves a payload. We defined our mission in six stages: horizontal takeoff,
+          transition to vertical flight, payload delivery, payload capture, transition back to
+          horizontal flight, and landing.
         </p>
         <p>
-          Payload pickup is scored especially strongly because a payload has to be dropped off in
-          a previous flight to be picked up. The entire payload + plane could weigh up to 3.5 lbs
-          and your points were multiplied based on how much your payload weighed. So, you were
-          incentivised to optimise your plane weight to allow your payload to weigh as much as
-          possible.
-        </p>
-      </section>
-
-      <section className="project-section">
-        <h2>Payload Design</h2>
-        <p>
-          My role on this project was to lead the payload team. We decided to design our payload
-          to be an omni wheel kiwi car. This design would allow the dropped off payload to move
-          out of the way while the payload getting picked up could take its place automatically.
-          While we could have had the plane move between the payloads, this design minimizes
-          the electronics needed in the plane and therefore saves plane weight. The kiwi car
-          setup allows for precise movement which makes it easier for us to position correctly
-          and align our capture mechanism.
-        </p>
-
-        <img src={planePhoto} alt="Team with the VTOL plane and payload" />
-
-        <p>
-          The plane was able to land in a relatively similar position every time on delivery. When
-          the plane landed, our payload would lower and drive to a preprogrammed position away
-          from the plane. Each different payload would have its own holding zone. Once the area
-          was clear, the payload on the landing zone would make its way and attach itself to the
-          plane.
+          Points are scored on takeoff, payload drop-off, payload pickup, and landing, with the
+          majority of points coming from payload operations. Payload pickup is weighted
+          especially heavily because it requires a payload to have been dropped off on a
+          previous flight as well as navigating the challenge of returning to the plane. The 
+          entire system — plane and payload combined — could weigh up to 3.5 lbs, and points 
+          were multiplied based on payload weight. This meant we were incentivized to minimize 
+          plane weight so the payload could be as heavy as possible.
         </p>
       </section>
 
       <section className="project-section">
-        <h2>Navigation System</h2>
+        <h2>My Role</h2>
         <p>
-          To locate the plane we used a combination of a bluetooth ultrawideband module — which
-          works like an AirTag — and machine vision with AprilTags. The UWB module gives the
-          payload a general direction of the plane but is not accurate at close range, and was
-          used to get under the plane. We then transitioned to using the machine vision camera
-          which would give us a precise location.
+          I led the payload team. We designed our payload as an omni-wheel kiwi car, a
+          three-wheeled platform capable of moving in any direction. After the plane delivered a
+          payload, it would lower itself, drive to a designated holding zone, and clear the
+          landing area. The next payload waiting in its holding zone would then navigate to the
+          plane and attach itself for pickup. This approach kept the plane's electronics simple
+          and lightweight by offloading the positioning logic to the payloads themselves.
         </p>
-        <img src={navigationPhoto} alt="UWB module and machine vision camera with AprilTag" />
+        <img src={dlzMovement} alt="Designated Landing Zone payload movement diagram" />
+        <p>
+          The payload used a combination of ultra-wideband positioning and machine vision with
+          AprilTags to locate and align with the plane. I'm especially proud of how the system
+          evolved, from a bare Arduino Uno wired to three motors all the way to a custom PCB
+          with integrated sensors. Each version solved a specific problem before adding
+          complexity. <em>More on the payload system coming soon.</em>
+        </p>
       </section>
 
       <section className="project-section">
-        <h2>System Evolution</h2>
+        <h2>Competition Results</h2>
         <p>
-          One of the things that I am proud of is the system design. Our system was not built in
-          one day but developed over the course of the project with upgrades every version. In
-          V0, our goal was to create a proof of concept and trial the movement of our car. All we
-          had here was an Arduino Uno wired to 3 omni motors. We continued by adding slowly,
-          asking questions and solving problems. How do we talk to the plane? We are running out
-          of GPIO ports, what board can we switch to? This process taught me to iterate slowly
-          and test before integrating something new.
+          While our payload performed well in testing, competition day did not go as planned.
+          Thunderstorms consumed much of the schedule, leaving us with only two flight attempts.
+          On one attempt we went out of bounds; on the other we couldn't acquire a GPS signal.
+          Neither scored points. Out of 22 teams, we placed 8th in the design report, 5th in the
+          readiness review, and 9th overall.
         </p>
-        <img src={payloadEvolution} alt="Payload evolution from V0 hardware prototype to V2 final design" />
-      </section>
-
-      <section className="project-section">
-        <h2>Flight Videos</h2>
         <div className="project-video-grid">
           <video controls>
             <source src={flightVideo1} type="video/mp4" />
@@ -117,33 +95,39 @@ function SAEAero() {
       </section>
 
       <section className="project-section">
-        <h2>Competition Results</h2>
+        <h2>Takeaways</h2>
         <p>
-          While our payload functioned incredibly well, our competition did not go as planned. Of
-          22 teams, we placed 8th in the report and 5th in the readiness review, but we did not
-          score points at competition. Due to thunderstorms, much of competition was spent
-          sheltering from the storm instead of getting flight attempts in. We were only able to
-          get two flight attempts, neither of which were able to score points — due to us going
-          out of bounds on one attempt and being unable to get GPS signal to our plane in
-          another. Tallied together, our overall score was 9th place.
-        </p>
-      </section>
-
-      <section className="project-section">
-        <h2>Lessons Learned</h2>
-        <p>
-          Even though this was not the result that my team was shooting for, I am proud of the
-          work that I did and we learned key details that we will take with us in upcoming years
-          of this competition. This year we did system testing of the plane and payload systems
-          but we did not do complete acceptance testing to our design requirements — this is
-          something that I plan to change for next year. We need to be able to complete the
-          entire verification and validation V to be confident in our performance at competition.
+          This wasn't the result we were shooting for, but I'm proud of the work we put in and
+          the lessons we're carrying forward. Our struggles at competition came down to two
+          things: testing discipline and division of labor.
         </p>
         <p>
-          I also learned that this competition is not an optimization problem. To complete this
-          mission autonomously is a difficult challenge — this year across 22 teams not one team
-          completed a payload capture. Only after being able to do our full mission at a high
-          completion rate can we think about optimizing the weight savings and scoring.
+          We learned that flight testing is risky. We crashed our plane multiple times in the
+          weeks leading up to competition, forcing us to rebuild quickly just to keep testing and
+          make it to Fort Worth. Next year, every flight test will be purpose-driven, each one
+          will have a checklist and a specific mission plan instead of just being a chance to fly the
+          plane.
+        </p>
+        <p>
+          We also had only one person working on the plane software, which became an issue
+          as competition approached. He did a great job, but this was a task that required
+          multiple team members to complete. With time quickly running out, there wasn't enough
+          room to onboard someone new even though we wanted to. Going forward, we're planning
+          to work in pairs and bring on a non-engineering project manager to distribute knowledge
+          more evenly across the team.
+        </p>
+        <p>
+          On the technical side, we tested the plane and payload systems individually but never
+          completed full acceptance testing against our design requirements. Next year we will not 
+          just test individual systems but also run full mission simulations. In doing so, we will
+          be closing the entire verification and validation loop before competition to have
+          real confidence in our performance.
+        </p>
+        <p>
+          The bigger lesson is that this competition is not an optimization problem, at least
+          not yet. Completing this mission autonomously is a serious challenge. This year, across
+          all 22 teams, not a single one completed a payload capture. We can only start
+          optimizing weight and scoring after we can reliably complete the full mission.
         </p>
       </section>
     </div>

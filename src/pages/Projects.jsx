@@ -1,6 +1,8 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function Projects() {
+  useEffect(() => { document.title = 'Projects — Luca Sburlino' }, [])
   const projects = [
     {
       title: 'SAE Aero Design Competition',

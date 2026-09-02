@@ -6,7 +6,7 @@ function Navbar({ theme, toggleTheme }) {
     <nav className="navbar">
       <div className="navbar-inner">
         <NavLink to="/" className="navbar-logo">
-          YN<span className="logo-dot">.</span>
+          LS<span className="logo-dot">.</span>
         </NavLink>
         <div className="navbar-right">
           <div className="navbar-links">
@@ -21,7 +21,7 @@ function Navbar({ theme, toggleTheme }) {
             </NavLink>
           </div>
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-            {theme === 'dark' ? '☀' : '●'}
+            {theme === 'dark' ? '☀' : '🌙'}
           </button>
         </div>
       </div>

@@ -1,4 +1,7 @@
+import { useEffect } from 'react'
+
 function CoolThings() {
+  useEffect(() => { document.title = 'Cool Things — Luca Sburlino' }, [])
   const coolThings = [
     {
       title: 'STP 2026',
